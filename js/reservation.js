@@ -13,6 +13,8 @@ let lastnameInput = document.querySelector('.lastname-input');
 let firstnameInput = document.querySelector('.firstname-input');
 let commentInput = document.querySelector('.comment-input');
 
+const sliceFirstname = firstnameInput.value.slice(1);
+const sliceLastname = lastnameInput.value.slice(1);
 let dropdown = document.querySelector('.person_dropdown_container');
 let errorPax = document.getElementById('error-pax');
 
@@ -28,8 +30,6 @@ const hiddenCommentInput = document.getElementById('hidden-comment-input');
 const hiddenCommentContainer = document.querySelector('.hidden_comment_container');
 const reservationContainer = document.querySelector('.reservation_confirmed');
 const reservationMessage = document.querySelector('.reservation-message');
-const sliceFirstname = firstnameInput.value.slice(1);
-const sliceLastname = lastnameInput.value.slice(1);
 const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 const selectedDate = new Date(dateInput.value);
 
@@ -278,7 +278,7 @@ confirmButton.addEventListener('click', function(e) {
   reservationContainer.classList.add('active');
   reservationMessage.textContent = `Hi ${firstnameInput.value.charAt(0).toUpperCase() + sliceFirstname.toLowerCase()}, appointment confirmed with Agape's Restaurant on ${selectedDate.toLocaleDateString('en-US', dateOptions)} at ${timeInput.value}. Please find the details below: `
   confirmedDateTime.textContent = `${selectedDate.toLocaleDateString('en-US', dateOptions)} at ${timeInput.value}`
-})
+}) 
 
 // Okay Button
 
@@ -286,6 +286,16 @@ const okayButton = document.querySelector('.okay-btn');
 
 okayButton.addEventListener('click', function(e) {
   reservationContainer.classList.remove('active');
+  
+  dateInput.value = '';
+  timeInput.value = '';
+  paxInput.value = '';
+  phoneInput.value = '';
+  emailInput.value = '';
+  firstnameInput.value = '';
+  lastnameInput.value = '';
+  commentInput.value = '';
+
   removeToggleBlur();
 })
 
@@ -296,6 +306,7 @@ bookButton.addEventListener('click', function(e) {
    if (commentInput.value !== '') {
     hiddenCommentContainer.style.display = 'block';
     hiddenCommentInput.textContent = commentInput.value;
+    return false;
    } else {
     hiddenCommentContainer.style.display = 'none';
    }
