@@ -13,25 +13,28 @@ let lastnameInput = document.querySelector('.lastname-input');
 let firstnameInput = document.querySelector('.firstname-input');
 let commentInput = document.querySelector('.comment-input');
 
-const sliceFirstname = firstnameInput.value.slice(1);
-const sliceLastname = lastnameInput.value.slice(1);
 let dropdown = document.querySelector('.person_dropdown_container');
 let errorPax = document.getElementById('error-pax');
 
+// Date Variable
+let selectedDate = new Date(dateInput.value);
+let day = selectedDate.getDate();
+let month = selectedDate.getMonth();
+let year = selectedDate.getFullYear();
+let dateFormat = `${month+1}/${day}/${year}`
+
 // Hidden Container Variables
-const bookTableContainer = document.querySelector('.book_a_table');
-const hiddenDateInput = document.getElementById('hidden-date-input');
-const hiddenTimeInput = document.getElementById('hidden-time-input');
-const hiddenFullnameInput = document.getElementById('hidden-fullname-input');
-const hiddenPaxInput = document.getElementById('hidden-pax-input');
-const hiddenEmailInput = document.getElementById('hidden-email-input');
-const hiddenPhoneInput = document.getElementById('hidden-phone-input');
-const hiddenCommentInput = document.getElementById('hidden-comment-input');
-const hiddenCommentContainer = document.querySelector('.hidden_comment_container');
-const reservationContainer = document.querySelector('.reservation_confirmed');
-const reservationMessage = document.querySelector('.reservation-message');
-const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-const selectedDate = new Date(dateInput.value);
+let bookTableContainer = document.querySelector('.book_a_table');
+let hiddenDateInput = document.getElementById('hidden-date-input');
+let hiddenTimeInput = document.getElementById('hidden-time-input');
+let hiddenFullnameInput = document.getElementById('hidden-fullname-input');
+let hiddenPaxInput = document.getElementById('hidden-pax-input');
+let hiddenEmailInput = document.getElementById('hidden-email-input');
+let hiddenPhoneInput = document.getElementById('hidden-phone-input');
+let hiddenCommentInput = document.getElementById('hidden-comment-input');
+let hiddenCommentContainer = document.querySelector('.hidden_comment_container');
+let reservationContainer = document.querySelector('.reservation_confirmed');
+let reservationMessage = document.querySelector('.reservation-message');
 
 // Toggle Blur
 function toggleBlur(e) {
@@ -152,7 +155,7 @@ const paxValidation = function() {
 const firstnameValidation = function() {
   firstnameInput = document.querySelector('.firstname-input');
   const errorFirstname = document.getElementById('error-firstname');
-
+  
   const errorFirstnameValidation = function(errorMessage) {
     errorFirstname.classList.add('active');
     firstnameInput.classList.add('error');
@@ -276,12 +279,11 @@ confirmButton.addEventListener('click', function(e) {
   const confirmedDateTime = document.querySelector('.confirmed-time-date');
   bookTableContainer.classList.remove('active');
   reservationContainer.classList.add('active');
-  reservationMessage.textContent = `Hi ${firstnameInput.value.charAt(0).toUpperCase() + sliceFirstname.toLowerCase()}, appointment confirmed with Agape's Restaurant on ${selectedDate.toLocaleDateString('en-US', dateOptions)} at ${timeInput.value}. Please find the details below: `
-  confirmedDateTime.textContent = `${selectedDate.toLocaleDateString('en-US', dateOptions)} at ${timeInput.value}`
+  reservationMessage.textContent = `Hi ${firstnameInput.value.charAt(0).toUpperCase() + firstnameInput.value.slice(1).toLowerCase()}, appointment confirmed with Agape's Restaurant on ${dateFormat} at ${timeInput.value}. Please find the details below: `
+  confirmedDateTime.textContent = `${dateFormat} at ${timeInput.value}`
 }) 
 
 // Okay Button
-
 const okayButton = document.querySelector('.okay-btn');
 
 okayButton.addEventListener('click', function(e) {
@@ -306,7 +308,6 @@ bookButton.addEventListener('click', function(e) {
    if (commentInput.value !== '') {
     hiddenCommentContainer.style.display = 'block';
     hiddenCommentInput.textContent = commentInput.value;
-    return false;
    } else {
     hiddenCommentContainer.style.display = 'none';
    }
@@ -347,12 +348,21 @@ bookButton.addEventListener('click', function(e) {
   }
 
   bookTableContainer.classList.add('active');
-  hiddenFullnameInput.textContent = firstnameInput.value.charAt(0).toUpperCase() + sliceFirstname.toLowerCase() + ' ' + lastnameInput.value.charAt(0).toUpperCase() + sliceLastname.toLowerCase(); 
+  hiddenFullnameInput.textContent = `${firstnameInput.value.charAt(0).toUpperCase() + firstnameInput.value.slice(1).toLowerCase() + " " + lastnameInput.value.charAt(0).toUpperCase() + lastnameInput.value.slice(1).toLowerCase()}`;
   hiddenPaxInput.textContent = paxInput.value;
   hiddenEmailInput.textContent = emailInput.value;
   hiddenPhoneInput.textContent = '0' + phoneInput.value;
-  hiddenDateInput.textContent = selectedDate.toLocaleDateString('en-US', dateOptions);
   hiddenTimeInput.textContent = timeInput.value;
+  
+  selectedDate = new Date(dateInput.value);
+  day = selectedDate.getDate();
+  month = selectedDate.getMonth();
+  year = selectedDate.getFullYear();
+  dateFormat = `${month+1}/${day}/${year}`
+  hiddenDateInput.textContent = dateFormat;
   toggleBlur();
   return true;
 })
+
+// selectedDate.toLocaleDateString('en-US', dateOptions);
+
