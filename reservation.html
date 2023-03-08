@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/root.css">
+  <link rel="stylesheet" href="css/reservation.css">
+  <script async src="js/root.js"></script>
+</head>
+<body>
+
+<!-- Header --> <!-- Header --> <!-- Header -->
+
+<header>
+
+  <div class="nav">
+    <div class="left_nav_col">
+      <a href="index.html"><img src="assets/logo/my-logo.png" alt=""></a>
+    </div>
+
+    <div class="right_nav_col">
+      <ul class="nav_list">
+        <li><a href="menu.html" class="list-item">Menu</a></li>
+        <li><a href="drink.html" class="list-item">Drinks</a></li>
+        <li><a href="about-us.html" class="list-item">About Us</a></li>
+        <li><a href="#" class="list-item">Reservations</a></li>
+
+        <div class="social_media_container">
+          <img src="assets/icons/facebook.png" alt="" class="socmed-icon">
+          <img src="assets/icons/twitter.png" alt="" class="socmed-icon">
+          <img src="assets/icons/instagram.png" alt="" class="socmed-icon">
+        </div>
+
+      </ul>
+
+      <div class="burger_icon_container">
+        <div class="burger_icon">
+          <span class=""></span>
+          <span class=""></span>
+          <span class=""></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+</header>
+
+<!-- Section One -->  <!-- Section One -->  <!-- Section One -->
+
+<section class="blur">
+  <div class="main_details_container">
+
+    <div class="left_col_container">
+      <div class="date_time_container detail_container">
+        <div class="date_container">
+          <h1>Date</h1>
+          <input class="date-input" type="date" value="" onkeyup="dateValidation()">
+          <p class="error-input" id="error-date"></p>
+        </div>
+        <div class="time_container">
+          <h1>Time</h1>
+          <input class="time-input" type="time" onkeyup="timeValidation()">
+          <p class="error-input" id="error-time"></p>
+        </div>
+      </div>
+  
+      <div class="people_container">
+        <h1>People</h1>
+        <input class="pax-input text-input" type="text" placeholder="how many person?" onkeyup="paxValidation()" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+        <ul class="person_dropdown_container">
+          <li class="person-count">1 - 5 person</li>
+          <li class="person-count">6 - 10 person</li>
+          <li class="person-count">11 - 15 person</li>
+          <li class="person-count">16 - 20 person</li>
+          <li class="person-count">20 above</li>
+        </ul>
+        <p class="error-input" id="error-pax">error</p>
+      </div>
+  
+      <div class="fullname_container detail_container">
+        <div class="firstname_container">
+          <h1>Firstname</h1>
+          <input class="firstname-input text-input" type="text" onkeyup="firstnameValidation()">
+          <p class="error-input" id="error-firstname">error</p>
+        </div>
+        <div class="lastname_container">
+          <h1>Lastname</h1>
+          <input class="lastname-input text-input" type="text" onkeyup="lastnameValidation()">
+          <p class="error-input" id="error-lastname">error</p>
+        </div>
+      </div>
+  
+      <div class="email_phone_container detail_container">
+        <div class="email_container">
+          <h1>Email</h1>
+          <input class="email-input text-input" type="text" placeholder="wednesdayadamms25@yahoo.com" onkeyup="emailValidation()">
+          <p class="error-input" id="error-email">error</p>
+        </div>
+        <div class="phone_container">
+          <h1>Phone</h1>
+          <input class="phone-input text-input" type="text" placeholder="9998765432" onkeyup="phoneValidation()" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="10">
+          <span class="phone-span"></span>
+          <p class="error-input" id="error-phone">error</p>
+        </div>
+      </div>
+  
+      <div class="comment_container">
+        <h1>Comments (optional)</h1>
+        <textarea class="comment-input" placeholder="optional" name="" id="" cols="40" rows="4"></textarea>
+      </div>
+  
+      <button class="book-button btn">Book a table</button>
+    </div>
+
+    <div class="right_col_container">
+      <img src="assets/images/pizza-model.png" alt="">
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer --> <!-- Footer --> <!-- Footer -->
+
+<footer class="blur">
+  <div class="footer_container">
+
+    <div class="footer_content">
+      <div class="location_col footer_col">
+        <h1>Location</h1>
+        <ul>
+          <li>18th Avenue Makati, Metro Manila</li>
+        </ul>
+      </div>
+
+      <div class="hours_col footer_col">
+        <h1>Hours</h1>
+        <ul>
+          <li>Lunch 11:30AM-3:00PM Monday-Saturday</li>
+          <li>Brunch 11:00AM-3:00PM Sunday</li>
+          <li>Dinner 3:00PM-9:00PM Monday-Friday</li>
+          <li>Dinner 3:00PM-11:30PM Saturday-Sunday</li>
+        </ul>
+      </div>
+
+      <div class="find_col footer_col">
+        <h1>Find us on</h1>
+        <ul>
+          <li><img src="assets/icons/facebook.png" alt=""></li>
+          <li><img src="assets/icons/instagram.png" alt=""></li>
+          <li><img src="assets/icons/twitter.png" alt=""></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Disclaimer Section --> <!-- Disclaimer Section --> <!-- Disclaimer Section -->
+
+<section class="blur">
+  <div class="disclaimer_container">
+    <h1>This site is for educational purposes only.</h1>
+    <h2>Created by: Dominic Gregorio</h2>
+  </div>
+</section>
+
+<!-- Hidden Section --> <!-- Hidden Section --> <!-- Hidden Section -->
+
+<section>
+  <div class="main_hidden_container book_a_table">
+    <img class="check-icon" src="assets/icons/booking.png" alt="">
+    <h1 class="hidden_h1">Date & Time</h1>
+    <div class="hidden_div hidden_date_time_container">
+      <p id="hidden-date-input">November 21, 2023</p>
+      <p id="hidden-time-input">2:00pm</p>
+    </div>
+    <h1 class="hidden_h1">Fullname</h1>
+    <div class="hidden_div hidden_fullname_container">
+      <p id="hidden-fullname-input">Dominic Gregorio</p>
+    </div>
+    <h1 class="hidden_h1">Attendee/s</h1>
+    <div class="hidden_div hidden_attendee_container">
+      <p id="hidden-pax-input">55</p>
+    </div>
+    <h1 class="hidden_h1">Contact info</h1>
+    <div class="hidden_div hidden_contact_info_container">
+      <p id="hidden-email-input">gregoriodominic12@yahoo.com</p>
+      <p id="hidden-phone-input">0961-543-4410</p>
+    </div>
+    <div class="hidden_div hidden_comment_container">
+      <h1>Comments</h1>
+      <p id="hidden-comment-input"></p>
+    </div>
+    <div class="book_button_container">
+      <button class="btn change-btn">Change</button>
+      <button class="btn confirm-btn">Confirm</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="main_hidden_container reservation_confirmed">
+    <img class="check-icon" src="assets/icons/checked.png" alt="">
+    <h1>Success!</h1>
+    <p class="reservation-message"></p>
+    <div class="confirmed_detail_container">
+      <div class="confirmed_date_time_container">
+        <h2>Confirmed time:</h2>
+        <p class="confirmed-time-date">hello hello</p>
+      </div>
+      <div class="restaurant_detail">
+        <h2>Agape's Restaurant</h2>
+        <div>
+          <p>18th Avenue Makati, Metro Manila</p>
+          <p>0998-765-4321</p>
+        </div>
+      </div>
+    </div>
+    <div class="appointment_change">
+      <h1>Need to make changes to this appointment?</h1>
+      <p>Manage your appointments by sending us an email at <a href="#">gregoriodominic25@yahoo.com</a> or contact us at (0998-765-4321)</p>
+    </div>
+    <button class="btn okay-btn">Okay</button>
+  </div>
+</section>
+
+  <script src="js/reservation.js"></script>
+
+</body>
+</html>

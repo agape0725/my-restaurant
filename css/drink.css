@@ -1,0 +1,337 @@
+body {
+  background-color: #f8f8f8;
+}
+
+/* Section One */ /* Section One */ /* Section One */
+
+#main_section_one {
+  position: relative;
+}
+
+.section_one_container {
+  background-image: url('../assets/icons/dot-background(green).png');
+  width: 100%;
+  margin: auto;
+  height: 600px;
+  z-index: -1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu_column {
+  background-image: url('../assets/images/donuts.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.menu_content {
+  width: 100%;
+  text-align: center;
+}
+
+.menu_content h1 {
+  font-family: var(--f-family-caveat);
+  font-weight: var(--f-weight-semibold);
+  font-size: 6rem;
+  color: var(--c-dusty-purple);
+
+}
+
+.menu_content h2 {
+  font-family: var(--f-family-sofiasans);
+  font-weight: var(--f-weight-regular);
+  font-size: 2.5rem;
+
+  color: var(--c-dusty-purple);
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  background-color: var(--c-cadillac-pink);
+}
+
+.btn > a {
+  text-decoration: none;
+  font-family: var(--f-family-bebas);
+  font-size: 1.3rem;
+  color: #f8f8f8;
+}
+
+.try-button {
+  padding: .6rem 2.5rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 150%);
+}
+
+/* Section Two */ /* Section Two */ /* Section Two */
+
+.menu_container {
+  color: #f8f8f8;
+  text-align: center;
+  background-color: var(--c-cadillac-pink);
+}
+
+.our-menu-text {
+  font-size: 5rem;
+  font-family: var(--f-family-bebas);
+  font-weight: var(--f-weight-light);
+}
+
+.menu_selection {
+  background-color: var(--c-purple-haze);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.menu_selection::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 25px;
+  background: linear-gradient(-45deg, #E5FDD1 12px, transparent 0%), linear-gradient(45deg, #E5FDD1 12px, transparent 0%);
+  background-size: 25px;
+}
+
+.menu_selection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25px;
+  background: linear-gradient(-135deg, var(--c-cadillac-pink) 12px, transparent 0%), linear-gradient(135deg, var(--c-cadillac-pink) 12px, transparent 0%);
+  background-size: 25px;
+}
+
+.menu_selection ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 3rem;
+  padding: 3rem 0;
+}
+
+.drink_selection {
+  list-style-type: none;
+  font-size: 1.5rem;
+  font-family: var(--f-family-montserrat);
+  font-weight: var(--f-weight-light);
+  cursor: pointer;
+}
+
+.drink_selection:hover {
+  color: var(--c-cadillac-pink);
+  transition: all 0.3s ease;
+}
+
+.drink_selection--active {
+  color: var(--c-cadillac-pink);
+}
+
+/* Section Two Content */ /* Section Two Content */ /* Section Two Content */
+
+.menu-selected-text {
+  text-align: center;
+  font-size: 5rem;
+  padding: 2rem 0;
+  font-family: var(--f-family-caveat);
+  color: var(--c-money-green);
+}
+
+.drink_menu_container {
+  width: 100%;
+  margin: auto;
+  background-color: #E5FDD1;
+  position: relative;
+  padding: 0 1rem;
+}
+
+.drink_main_container {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+  align-items: center;
+  grid-gap: 2.5rem;
+  height: 100%;
+  padding: 2rem 0;
+}
+
+.drink_main_container--active {
+  display: grid;
+
+  animation-name: foodSelectionActive;
+  animation-duration: .4s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes foodSelectionActive {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.drink_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px #1F8A70 solid;
+  padding: 1rem;
+  grid-gap: 2rem;
+  height: 230px;
+}
+
+.drink_left_col {
+  display: flex;
+  align-items: center;
+  grid-gap: 2rem;
+  color: var(--c-mineral-green);
+}
+
+.drink_image_col img {
+  height: 140px;
+  width: 120px;
+}
+
+.drink_content_col h1 {
+  font-family: var(--f-family-sofiasans);
+  margin-bottom: .4rem;
+}
+
+.drink_content_col p {
+  font-family: var(--f-family-montserrat); 
+}
+
+.drink_price_col h1 {
+  font-family: var(--f-family-bebas); 
+  font-weight: var(--f-weight-regular);
+  color: var(--c-money-green);
+}
+
+.drink_image_col[beverage='wine'] img {
+  width: 50px;
+}
+
+.drink_image_col[beverage='cocktail'] img {
+  width: 65px;
+}
+
+.drink_image_col[beverage='milkshake-smoothies'] img {
+  width: 60px;
+}
+
+.drink_image_col[beverage-name="banana-java"] img {
+  width: 110px;
+}
+
+.drink_image_col[beverage-name="mango-plum"] img {
+  width: 80px;
+}
+
+@media screen and (max-width: 768px) {
+  /* Section One */ /* Section One */ /* Section One */
+
+  .menu_column {
+    min-width: 400px;
+  }
+
+  .menu_content h1 {
+    font-size: 4.5rem;
+  }
+
+  .menu_content h2 {
+    font-size: 2rem;
+  }
+
+  .btn > a {
+    font-size: 1.5rem;
+  }
+
+  .try-button {
+    padding: .5rem 2rem;
+    margin: 1rem auto;
+  }
+
+  /* Section Two */ /* Section Two */ /* Section Two */
+
+  .our-menu-text {
+    font-size: 4.5rem;
+  }
+
+  .menu_selection ul {
+    flex-direction: column;
+    grid-gap: 2.5rem;
+  }
+
+  .food_selection {
+    font-size: 1.6rem;
+  }
+
+  .food_selection--active {
+    color: var(--c-cadillac-pink);
+  }
+
+/* Section Two Content */ /* Section Two Content */ /* Section Two Content */
+
+  .menu-selected-text {
+    font-size: 5rem;
+  }
+
+  .drink_main_container {
+    grid-gap: 1rem;
+  }
+
+  .drink_container {
+    padding: .7rem;
+    height: 200px;
+  }
+
+  .drink_image_col img {
+    height: 110px;
+  }
+
+  .drink_image_col[beverage="milkshake-smoothies"] img, .drink_image_col[beverage="wine"] img {
+    width: 65px;
+  }
+
+  .drink_image_col[beverage="fruit-juice"] img, .drink_image_col[beverage="cocktail"] img {
+    width: 75px;
+  }
+
+  .drink_content_col h1 {
+    font-size: 1.6rem;
+  }
+
+  .drink_content_col p {
+    font-size: 1.1rem;
+  }
+
+  .drink_price_col h1 {
+    font-size: 1.6rem;
+  }
+}
